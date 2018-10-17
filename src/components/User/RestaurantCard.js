@@ -9,7 +9,7 @@ const ItemExampleDivided = () => (
 			<Item.Image size='small' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqvo8sceTqPRKBciFaibhsdcZH-46unwOvMsd8GjIgxPKo9-z' />
 
 			<Item.Content>
-				<Item.Header as='a'>Isho boiiiii Restaurant</Item.Header>
+				<Item.Header as='a'>DUMBO</Item.Header>
 				<Item.Meta>
 					<span className='cinema'>Union Square 14</span>
 				</Item.Meta>

@@ -11,11 +11,11 @@ class FoodItem extends Component {
 						<Item.Image size='small' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqvo8sceTqPRKBciFaibhsdcZH-46unwOvMsd8GjIgxPKo9-z' />
 						<div>
 							<br />
-							<Button negative icon='minus' size='mini'/>
+							<Button color='red' icon='minus' size='mini' inverted/>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<span>2</span>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<Button positive icon='plus' size='mini'/>
+							<Button color='green' icon='plus' size='mini' inverted/>
 						</div>
 						</Container>
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Container } from 'semantic-ui-react'
 import FoodItem from './FoodItem'
 
 export default class Order1 extends Component {
@@ -26,9 +26,11 @@ export default class Order1 extends Component {
 					<FoodItem />
 				</Modal.Content>
 				<Modal.Actions>
-					<Button color='green' onClick={this.handleClose} inverted>
-						<Icon name='checkmark' /> Got it
-					</Button>
+					<Container textAlign='center'>
+						<Button color='green' onClick={this.handleClose} inverted>
+							Review your bag <Icon name='right chevron' />
+						</Button>
+					</Container>
 				</Modal.Actions>
 			</Modal>
 		)

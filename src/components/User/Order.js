@@ -3,10 +3,11 @@ import { Container } from 'semantic-ui-react'
 import Order1 from './Order1'
 import Order2 from './Order2'
 import Order3 from './Order3'
+import Order4 from './Order4'
 
 export default class Order extends Component {
 	state = {
-		step: 1
+		step: 4
 	}
 
 	renderStep() {
@@ -17,6 +18,8 @@ export default class Order extends Component {
 				return <Order2 />
 			case 3:
 				return <Order3 />
+			case 4:
+				return <Order4 />
 		}
 	}
 
