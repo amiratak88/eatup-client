@@ -19,6 +19,7 @@ export default class Order4 extends Component {
 				<Header content='Final Step' />
 				<Modal.Content>
 					<Header as='h2' content='Order Confirmation'></Header>
+					
 					<Receipt />
 				</Modal.Content>
 				<Modal.Actions>

@@ -7,6 +7,7 @@ import UserSignup from './components/LoginSignup/UserSignup'
 import ManagerLogin from './components/LoginSignup/ManagerLogin'
 import ManagerSignup from './components/LoginSignup/ManagerSignup'
 import UserDashboard from './components/User/UserDashboard'
+import ManagerDashboard from './components/Manager/ManagerDashboard'
 
 class App extends Component {
 
@@ -18,7 +19,7 @@ class App extends Component {
 				{/* <UserSignup /> */}
 				{/* <ManagerLogin /> */}
 				{/* <ManagerSignup /> */}
-				<UserDashboard />
+				{/* <UserDashboard /> */}
 			</Container>
 		)
 	}
