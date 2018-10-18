@@ -20,6 +20,7 @@ class App extends Component {
 				{/* <ManagerLogin /> */}
 				{/* <ManagerSignup /> */}
 				{/* <UserDashboard /> */}
+				<ManagerDashboard />
 			</Container>
 		)
 	}

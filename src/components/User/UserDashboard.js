@@ -9,7 +9,6 @@ class UserDashboard extends Component {
 			<Container>
 				<UserNav />
 				<OrderNow />
-
 			</Container>
 		)
 	}

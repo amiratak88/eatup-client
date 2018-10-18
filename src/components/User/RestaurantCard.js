@@ -1,9 +1,7 @@
 import React from 'react'
-import { Button, Image, Item } from 'semantic-ui-react'
+import { Button, Item } from 'semantic-ui-react'
 
-const paragraph = <Image src='/images/wireframe/short-paragraph.png' />
-
-const ItemExampleDivided = () => (
+const RestaurantCard = () => (
 	<Item.Group fluid>
 		<Item>
 			<Item.Image size='small' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqvo8sceTqPRKBciFaibhsdcZH-46unwOvMsd8GjIgxPKo9-z' />
@@ -26,4 +24,4 @@ Reprehenderit quis Lorem proident ut velit. Enim veniam aliqua officia proident 
 	</Item.Group>
 )
 
-export default ItemExampleDivided
+export default RestaurantCard

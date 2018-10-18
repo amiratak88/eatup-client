@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 
-export default class MenuExampleTabular extends Component {
+export default class UserNav extends Component {
 	state = { activeItem: 'Order Now' }
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
