@@ -9,7 +9,8 @@ export default class ConfirmedOrders extends Component {
 				<ConfirmedOrder />
 				<ConfirmedOrder />
 				<ConfirmedOrder />
-				<ConfirmedOrder />				<ConfirmedOrder />
+				<ConfirmedOrder />
+				<ConfirmedOrder />
 			</Container>
 		)
 	}

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
-import './styles/ManagerSignup.css'
 
 export default props => (
 	<Container className="loginsignup managersignup">
@@ -19,6 +18,6 @@ export default props => (
 		<input type="submit" value="Log in"/><br /><br />
 
 		<p>Already have an account? <a href="#">Log In</a></p>
-		<p><a href="#">Sign up as a restaurant manager</a></p>
+		<p><a href="#">Sign up as a user</a></p>
 	</Container>
 )

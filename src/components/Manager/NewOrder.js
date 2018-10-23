@@ -11,11 +11,11 @@ export default () => (
 			<Item.Content>
 				<Item.Header as='a'>Amirata Khodaparast</Item.Header>
 				<Item.Description>
-					5 items <br />
-					Received 2 minutes ago
+					<p>5 items</p>
+					<p>Received 2 minutes ago</p>
 				</Item.Description>
 				<Item.Extra>
-				
+
 				</Item.Extra>
 			</Item.Content>
 			<Button

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
-import './styles/UserSignup.css'
 
 export default props => (
 	<Container className="loginsignup usersignup">

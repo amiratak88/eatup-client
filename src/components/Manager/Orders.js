@@ -9,8 +9,8 @@ class Orders extends Component {
 		return (
 			<Container>
 				<OrdersNav />
-				{/* <NewOrders /> */}
-				<ConfirmedOrders />
+				<NewOrders />
+				{/* <ConfirmedOrders /> */}
 			</Container>
 		)
 	}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux'
 import './App.css';
 import { Container } from 'semantic-ui-react'
 import UserLogin from './components/LoginSignup/UserLogin'
@@ -8,22 +8,38 @@ import ManagerLogin from './components/LoginSignup/ManagerLogin'
 import ManagerSignup from './components/LoginSignup/ManagerSignup'
 import UserDashboard from './components/User/UserDashboard'
 import ManagerDashboard from './components/Manager/ManagerDashboard'
+import { ActionCable } from 'react-actioncable-provider'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
 
-
 	render() {
 		return (
-			<Container className="App">
-				{/* <UserLogin /> */}
-				{/* <UserSignup /> */}
-				{/* <ManagerLogin /> */}
-				{/* <ManagerSignup /> */}
-				{/* <UserDashboard /> */}
-				<ManagerDashboard />
-			</Container>
+				<Container>
+					<Switch>
+						{/* <Redirect from='/' to='/users/login' component={UserLogin} /> */}
+						<Route path='/users/login' component={UserLogin} />
+						<Route path='/users/signup' component={UserSignup} />
+						<Route path='/managers/signup' component={ManagerSignup} />
+						<Route path='/managers/login' component={ManagerLogin} />
+						<Route path='/users/dashboard' component={UserDashboard} />
+						<Route path='/managers/dashboard' component={ManagerDashboard} />
+						{/* <ActionCable
+							key={2}
+							channel={{ channel: 'ManagersChannel', manager: 2 }}
+							onReceived={console.log}
+						/> */}
+					</Switch>
+				</Container>
 		)
 	}
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		manager: state.manager,
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps)(App)

@@ -1,21 +1,33 @@
-import React from 'react'
-import { Container } from 'semantic-ui-react'
-import './styles/UserLogin.css'
+import React, { Component } from 'react'
+import { Container, Header, Form, Button, Checkbox, Input } from 'semantic-ui-react'
 
-export default props => (
-	<Container className="loginsignup userlogin">
-		<br />
-		<h1>Log In</h1><br />
+export default class UserLogin extends Component {
 
-		<label htmlFor="username">Username: </label>
-		<input id="username" type="text" /><br /><br />
+	state = {
+		username: '',
+		password: ''
+	}
 
-		<label htmlFor="password">Password: </label>
-		<input id="password" type="password" /><br /><br />
+	handleChange = e => this.setState({[e.target.name]: e.target.value})
 
-		<input type="submit" value="Log in"/><br /><br />
+	handleSubmit = () => {}
 
-		<p>Don't have and account? <a href="#">Signup</a></p>
-		<p><a href="#">Log in in as a restaurant manager</a></p>
-	</Container>
-)
+	render() {
+		return (
+			<Container textAlign='center' style={{width: '35%'}}>
+				<Header as='h1'>Log in as a user</Header>
+				<Form>
+					<Form.Field>
+						<label htmlFor='username'>Username</label>
+						<Input name = 'username' placeholder='Please enter your username' />
+					</Form.Field>
+					<Form.Field>
+						<label htmlFor='password'>Password</label>
+						<Input name = 'password' type='password' placeholder='Please enter your password' />
+					</Form.Field>
+					<Button type='submit'>Log in</Button>
+				</Form>
+			</Container>
+		)
+	}
+}

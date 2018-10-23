@@ -30,10 +30,3 @@
 		transform: rotate(360deg);
 	}
 }
-
-.loginsignup {
-	background-color: #FFF9EA;
-	position: absolute;
-	border: 3px #576490 solid;
-	border-radius: 1rem;
-}

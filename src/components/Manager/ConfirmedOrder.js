@@ -11,9 +11,9 @@ export default () => (
 			<Item.Content>
 				<Item.Header as='a'>Amirata Khodaparast</Item.Header>
 				<Item.Description>
-					5 items <br />
-					Received 2 minutes ago <br />
-					Promised by 4:30 pm - 4:45 pm
+					<p>5 items</p>
+					<p>Received 2 minutes ago</p>
+					<p>Promised by 4:30 pm - 4:45 pm</p>
 				</Item.Description>
 			</Item.Content>
 			<Button
