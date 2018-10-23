@@ -14,11 +14,12 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 class App extends Component {
 
 	render() {
+		console.log(this.props)
 		return (
 				<Container>
 					<Switch>
 						{/* <Redirect from='/' to='/users/login' component={UserLogin} /> */}
-						<Route path='/users/login' component={UserLogin} />
+						<Route path='/users/login' render={(routerProps) => <UserLogin {...routerProps} />} />
 						<Route path='/users/signup' component={UserSignup} />
 						<Route path='/managers/signup' component={ManagerSignup} />
 						<Route path='/managers/login' component={ManagerLogin} />

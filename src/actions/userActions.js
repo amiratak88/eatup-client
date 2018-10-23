@@ -4,12 +4,7 @@ import { persist } from '../adapters/userAdapter'
 export const getUserData = (token) => {
 	return (dispatch) => {
 		dispatch({ type: 'START_GETTING_USER_DATA' })
-		return fetch(`${API_ROOT}/persist`, {
-			method: 'POST',
-			headers: HEADERS,
-			body: JSON.stringify(data)
-		})
-			.then(res => res.json())
+		persist(token)
 			.then(userData => {
 				dispatch({
 					type: 'GET_USER_DATA',
