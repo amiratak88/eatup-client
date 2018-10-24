@@ -18,12 +18,12 @@ class App extends Component {
 		return (
 				<Container>
 					<Switch>
-						{/* <Redirect from='/' to='/users/login' component={UserLogin} /> */}
+						{/* <Redirect exact from='/' to='/users/login' component={} /> */}
 						<Route path='/users/login' render={(routerProps) => <UserLogin {...routerProps} />} />
 						<Route path='/users/signup' component={UserSignup} />
 						<Route path='/managers/signup' component={ManagerSignup} />
 						<Route path='/managers/login' component={ManagerLogin} />
-						<Route path='/users/dashboard' component={UserDashboard} />
+						<Route path='/users/dashboard' component={(routerProps) => <UserDashboard {...routerProps} />} />
 						<Route path='/managers/dashboard' component={ManagerDashboard} />
 						{/* <ActionCable
 							key={2}

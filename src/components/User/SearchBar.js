@@ -11,7 +11,7 @@ class SearchBar extends Component {
 
 	render() {
 		return (
-			<Form>
+			<Form onSubmit={this.handleSubmit}>
 				<Input
 					fluid
 					icon='search'

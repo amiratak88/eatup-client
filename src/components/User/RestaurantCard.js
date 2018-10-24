@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Item } from 'semantic-ui-react'
 
 const RestaurantCard = () => (
-	<Item.Group fluid>
+	<Item.Group>
 		<Item>
 			<Item.Image size='small' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqvo8sceTqPRKBciFaibhsdcZH-46unwOvMsd8GjIgxPKo9-z' />
 
