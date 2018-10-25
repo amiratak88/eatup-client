@@ -7,21 +7,15 @@ import { connect } from 'react-redux'
 
 class OrderNow extends Component {
 
-	state = {
-		selectedRestaurantId: null
-	}
-
 	getRestaurantCards() {
-		return this.props.user.searchedRestaurants.map(r => <RestaurantCard key={r.id} restaurant={r} selectRestaurant={this.selectRestaurant} />)
+		return this.props.user.searchedRestaurants.map(r => <RestaurantCard key={r.id} restaurant={r} />)
 	}
-
-	selectRestaurant = (id) => this.setState({selectedRestaurantId: id})
 
 	render() {
 		// console.log("OrderNow props", this.props.user)
 		return (
 			<Container>
-				{this.state.selectedRestaurantId && <Order />}
+				{this.props.user.selectedRestaurantId && <Order />}
 				<Header as='h1'>Select your restaurant</Header>
 				<SearchBar /><br />
 				<Container textAlign='left'>
@@ -32,4 +26,4 @@ class OrderNow extends Component {
 	}
 }
 
-export default connect(({ user }) => ({ user }))(OrderNow)
+export default connect(({ user, selectedRestaurantId }) => ({ user, selectedRestaurantId }))(OrderNow)

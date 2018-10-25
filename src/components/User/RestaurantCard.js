@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Item } from 'semantic-ui-react'
 import { defaultImgURL } from '../../constants/index'
+import { selectRestaurant } from '../../actions/userActions'
+import { connect } from 'react-redux'
 
 const RestaurantCard = ({ restaurant: { id, name, imgURL, description, address }, selectRestaurant }) => (
 	<Item.Group>
@@ -18,7 +20,7 @@ const RestaurantCard = ({ restaurant: { id, name, imgURL, description, address }
 					primary
 					floated='right'
 					content='Order Now'
-					onClick={() => selectRestaurant(id)}
+					onClick={() =>  selectRestaurant(id)}
 				/>
 				</Item.Extra>
 			</Item.Content>
@@ -26,4 +28,4 @@ const RestaurantCard = ({ restaurant: { id, name, imgURL, description, address }
 	</Item.Group>
 )
 
-export default RestaurantCard
+export default connect(null, { selectRestaurant })(RestaurantCard)

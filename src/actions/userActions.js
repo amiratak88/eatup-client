@@ -48,3 +48,8 @@ export const addItem = (data) => {
 			}))
 	}
 }
+
+export const selectRestaurant = (id) => ({
+	type: 'SELECT_RESTAURANT',
+	payload: { id }
+})

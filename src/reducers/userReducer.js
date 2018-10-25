@@ -2,7 +2,8 @@ const initialState = {
 	user: {},
 	searchedRestaurants: [],
 	currentOrder: {order_items: []},
-	orders: []
+	orders: [],
+	selectedRestaurantId: null
 }
 
 export default (state = initialState, action) => {
@@ -30,6 +31,11 @@ export default (state = initialState, action) => {
 					...state.currentOrder,
 					order_items: [state.currentOrder.items, action.payload.item]
 				}
+			}
+		case 'SELECT_RESTAURANT':
+			return {
+				...state,
+				selectedRestaurantId: action.payload.id
 			}
 		default:
 			return initialState
