@@ -1,6 +1,8 @@
 const initialState = {
+	user: {},
 	searchedRestaurants: [],
-	user: {}
+	currentOrder: {order_items: []},
+	orders: []
 }
 
 export default (state = initialState, action) => {
@@ -14,6 +16,20 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				searchedRestaurants: action.payload.restaurants
+			}
+		case 'INITIALIZE_ORDER':
+			return {
+				...state,
+				orders: [...state.orders, action.payload.order],
+				currentOrder: action.payload.order
+			}
+		case 'ADD_ITEM':
+			return {
+				...state,
+				currentOrder: {
+					...state.currentOrder,
+					order_items: [state.currentOrder.items, action.payload.item]
+				}
 			}
 		default:
 			return initialState

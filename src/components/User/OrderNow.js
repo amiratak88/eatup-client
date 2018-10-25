@@ -12,7 +12,7 @@ class OrderNow extends Component {
 	}
 
 	getRestaurantCards() {
-		return this.props.user.searchedRestaurants.map(r => <RestaurantCard key={r.id} restaurant={r} selectRestaurant={this.selectRestaurant}/>)
+		return this.props.user.searchedRestaurants.map(r => <RestaurantCard key={r.id} restaurant={r} selectRestaurant={this.selectRestaurant} />)
 	}
 
 	selectRestaurant = (id) => this.setState({selectedRestaurantId: id})
