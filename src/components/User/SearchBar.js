@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Input } from 'semantic-ui-react'
+import { searchRestaurants } from '../../actions/userActions'
+import { connect } from 'react-redux'
 
 class SearchBar extends Component {
 
@@ -8,6 +10,12 @@ class SearchBar extends Component {
 	}
 
 	handleChange = e => this.setState({term: e.target.value})
+
+	handleSubmit = e => {
+		e.preventDefault()
+		this.props.searchRestaurants(this.state.term)
+		this.setState({term: ''})
+	}
 
 	render() {
 		return (
@@ -24,4 +32,4 @@ class SearchBar extends Component {
 	}
 }
 
-export default SearchBar;
+export default connect(null, { searchRestaurants })(SearchBar)

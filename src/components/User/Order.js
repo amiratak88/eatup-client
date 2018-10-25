@@ -7,7 +7,7 @@ import Order4 from './Order4'
 
 export default class Order extends Component {
 	state = {
-		step: 4
+		step: 1
 	}
 
 	renderStep() {

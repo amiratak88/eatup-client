@@ -14,7 +14,6 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 class App extends Component {
 
 	render() {
-		console.log(this.props)
 		return (
 				<Container>
 					<Switch>
@@ -23,7 +22,7 @@ class App extends Component {
 						<Route path='/users/signup' component={UserSignup} />
 						<Route path='/managers/signup' component={ManagerSignup} />
 						<Route path='/managers/login' component={ManagerLogin} />
-						<Route path='/users/dashboard' component={(routerProps) => <UserDashboard {...routerProps} />} />
+						<Route path='/users/dashboard' render={(routerProps) => <UserDashboard {...routerProps} />} />
 						<Route path='/managers/dashboard' component={ManagerDashboard} />
 						{/* <ActionCable
 							key={2}

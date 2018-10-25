@@ -10,28 +10,18 @@ class UserDashboard extends Component {
 
 	componentDidMount() {
 		const token = localStorage.getItem('token')
-
-		if (token && token !== "undefined" && !this.props.user.id && !this.props.user.status) {
-			this.props.getUserData(token)
-		}
+		this.props.getUserData(token)
 	}
 
 	render() {
-		if (localStorage.getItem('token')) {
+		// console.log("UserDashboard props", this.props.user)
 			return (
 				<Container>
 					<UserNav />
 					<OrderNow />
 				</Container>
 			)
-		} else {
-			return <Redirect to='/users/login'/>
-		}
 	}
 }
 
-const mapStateToProps = state => ({
-	user: state.user
-})
-
-export default connect(mapStateToProps, { getUserData })(UserDashboard)
+export default connect(({ user }) => ({ user }), { getUserData })(UserDashboard)

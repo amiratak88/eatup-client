@@ -6,7 +6,8 @@ export const login = (data) => {
 		headers: HEADERS,
 		body: JSON.stringify({ user: data })
 	})
-		.then(res => res.json())
+		.then(res => res.ok || !res.json().error ? res.json() : null)
+		.catch(res => null)
 }
 
 export const persist = (token) => {
@@ -14,5 +15,10 @@ export const persist = (token) => {
 		method: 'GET',
 		headers: {"Authorization": token}
 	})
+		.then(res => res.json())
+}
+
+export const searchRestaurantsAdapter = (term) => {
+	return fetch(`${API_ROOT}/restaurants/search?term=${term}`)
 		.then(res => res.json())
 }

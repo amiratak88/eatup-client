@@ -6,17 +6,26 @@ import Order from './Order'
 import { connect } from 'react-redux'
 
 class OrderNow extends Component {
+
+	state = {
+		selectedRestaurantId: null
+	}
+
+	getRestaurantCards() {
+		return this.props.user.searchedRestaurants.map(r => <RestaurantCard key={r.id} restaurant={r} selectRestaurant={this.selectRestaurant}/>)
+	}
+
+	selectRestaurant = (id) => this.setState({selectedRestaurantId: id})
+
 	render() {
+		// console.log("OrderNow props", this.props.user)
 		return (
 			<Container>
-				{/* <Order /> */}
+				{this.state.selectedRestaurantId && <Order />}
 				<Header as='h1'>Select your restaurant</Header>
 				<SearchBar /><br />
 				<Container textAlign='left'>
-					{/* <RestaurantCard />
-					<RestaurantCard />
-					<RestaurantCard />
-					<RestaurantCard /> */}
+					{this.getRestaurantCards()}
 				</Container>
 			</Container>
 		)

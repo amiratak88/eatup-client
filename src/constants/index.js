@@ -4,3 +4,4 @@ export const HEADERS = {
 	'Content-Type': 'application/json',
 	Accept: 'application/json',
 }
+export const defaultImgURL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqvo8sceTqPRKBciFaibhsdcZH-46unwOvMsd8GjIgxPKo9-z'
