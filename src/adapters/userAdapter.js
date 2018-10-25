@@ -23,7 +23,7 @@ export const searchRestaurantsAdapter = (term) => {
 		.then(res => res.json())
 }
 
-export const initializeOrder = (data) => {
+export const initializeOrderAdapter = (data) => {
 	return fetch(`${API_ROOT}/orders`, {
 		method: 'POST',
 		headers: HEADERS,
@@ -32,7 +32,7 @@ export const initializeOrder = (data) => {
 		.then(res => res.json())
 }
 
-export const addItem = (data) => {
+export const addItemAdapter = (data) => {
 	return fetch(`${API_ROOT}/order_items`, {
 		method: 'POST',
 		headers: HEADERS,

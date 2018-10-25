@@ -1,5 +1,5 @@
 import { API_ROOT, HEADERS } from '../constants/index'
-import { persist, searchRestaurantsAdapter } from '../adapters/userAdapter'
+import { persist, searchRestaurantsAdapter, initializeOrderAdapter, addItemAdapter } from '../adapters/userAdapter'
 
 export const getUserData = (token) => {
 	return (dispatch) => {
@@ -23,6 +23,28 @@ export const searchRestaurants = (term) => {
 				payload: {
 					restaurants
 				}
+			}))
+	}
+}
+
+export const initializeOrder = (data) => {
+	return (dispatch) => {
+		dispatch({ type: 'START_INITIALIZING_ORDER' })
+		return initializeOrderAdapter(data)
+			.then(order => dispatch({
+				type: 'INITIALIZE_ORDER',
+				payload: { order }
+			}))
+	}
+}
+
+export const addItem = (data) => {
+	return (dispatch) => {
+		dispatch({ type: 'START_ADDING_ITEM' })
+		return addItemAdapter(data)
+			.then(orderItem => dispatch({
+				type: 'ADD_ITEM',
+				payload: { orderItem }
 			}))
 	}
 }
