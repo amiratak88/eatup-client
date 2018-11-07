@@ -12,7 +12,7 @@ class OrderNow extends Component {
 	}
 
 	render() {
-		// console.log("OrderNow props", this.props.user)
+		console.log("OrderNow props", this.props.user)
 		return (
 			<Container>
 				{this.props.user.selectedRestaurantId && <Order />}

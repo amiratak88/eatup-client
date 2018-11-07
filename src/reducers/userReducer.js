@@ -38,6 +38,9 @@ export default (state = initialState, action) => {
 				selectedRestaurantId: action.payload.id
 			}
 		default:
-			return initialState
+			return {
+				...initialState,
+				...state
+			}
 	}
 }

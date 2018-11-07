@@ -26,7 +26,7 @@ export const searchRestaurantsAdapter = (term) => {
 export const initializeOrderAdapter = (data) => {
 	return fetch(`${API_ROOT}/orders`, {
 		method: 'POST',
-		headers: HEADERS,
+		headers: { ...HEADERS, Authorization: localStorage.getItem('token') },
 		body: JSON.stringify(data)
 	})
 		.then(res => res.json())
@@ -35,7 +35,7 @@ export const initializeOrderAdapter = (data) => {
 export const addItemAdapter = (data) => {
 	return fetch(`${API_ROOT}/order_items`, {
 		method: 'POST',
-		headers: HEADERS,
+		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(data)
 	})
 		.then(res => res.json())

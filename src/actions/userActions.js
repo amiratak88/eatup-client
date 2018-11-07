@@ -53,3 +53,7 @@ export const selectRestaurant = (id) => ({
 	type: 'SELECT_RESTAURANT',
 	payload: { id }
 })
+
+// export const removeItem = (id) => {
+// 	return (dispatch)
+// }

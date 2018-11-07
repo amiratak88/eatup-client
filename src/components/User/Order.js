@@ -4,10 +4,16 @@ import Order1 from './Order1'
 import Order2 from './Order2'
 import Order3 from './Order3'
 import Order4 from './Order4'
+import { connect } from 'react-redux'
+import { initializeOrder } from '../../actions/userActions'
 
-export default class Order extends Component {
+class Order extends Component {
 	state = {
 		step: 1
+	}
+
+	componentDidMount() {
+		this.props.initializeOrder({ restaurant_id: this.props.selectedRestaurantId})
 	}
 
 	renderStep() {
@@ -35,3 +41,9 @@ export default class Order extends Component {
 		)
 	}
 }
+
+const mapStateToProps = ({ user: { selectedRestaurantId } }) => ({
+	selectedRestaurantId
+})
+
+export default connect(mapStateToProps, { initializeOrder })(Order)

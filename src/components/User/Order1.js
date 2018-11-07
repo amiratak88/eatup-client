@@ -15,7 +15,7 @@ class Order1 extends Component {
 		const selectedRestaurant = this.props.searchedRestaurants.find(r => r.id === this.props.selectedRestaurantId)
 
 		return selectedRestaurant.items.map(i => {
-			return <FoodItem item={i} />
+			return <FoodItem item={i} key={i.id} currentOrder={this.props.currentOrder} />
 		})
 	}
 
@@ -45,7 +45,8 @@ class Order1 extends Component {
 
 const mapStateToProps = (state) => ({
 	searchedRestaurants: state.user.searchedRestaurants,
-	selectedRestaurantId: state.user.selectedRestaurantId
+	selectedRestaurantId: state.user.selectedRestaurantId,
+	currentOrder: state.user.currentOrder
 })
 
 // export default connect(mapStateToProps, null)(Order1)

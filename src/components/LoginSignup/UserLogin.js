@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Header, Form, Button, Input } from 'semantic-ui-react'
 import { login } from '../../adapters/userAdapter'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import UserDashboard from '../User/UserDashboard'
 
 const initialState = {
@@ -13,6 +13,10 @@ class UserLogin extends Component {
 
 	state = initialState
 
+	componentDidMount() {
+		localStorage.getItem('token') && this.props.history.push('/users/dashboard')
+	}
+
 	handleChange = e => this.setState({[e.target.name]: e.target.value})
 
 	handleSubmit = e => {
@@ -21,13 +25,12 @@ class UserLogin extends Component {
 		login(this.state)
 			.then(data => {
 				localStorage.setItem('token', data.token)
+				this.props.history.push('/users/dashboard')
 			})
 	}
 
 	render() {
 		const token = localStorage.getItem('token')
-
-		if (!token) {
 			return (
 				<Container textAlign='center' style={{width: '35%'}}>
 					<Header as='h1'>Log in as a user</Header>
@@ -54,9 +57,6 @@ class UserLogin extends Component {
 					</Form>
 				</Container>
 			)
-		} else {
-			return <Redirect to='/users/dashboard' />
-		}
 	}
 }
 

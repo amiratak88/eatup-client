@@ -1,10 +1,34 @@
 import React, { Component } from 'react'
 import { Container, Item, Button } from 'semantic-ui-react'
 import { defaultImgURL } from '../../constants/index'
+import { connect } from 'react-redux'
+import { addItem } from '../../actions/userActions'
 
 class FoodItem extends Component {
+
+	add = () => {
+		console.log("FoodItem PROPS:", this.props)
+		this.props.addItem({
+			item_id: this.props.item.id,
+			order_id: this.props.currentOrder.id
+		})
+	}
+
+	count() {
+		const { item: { id }, currentOrder } = this.props
+
+
+		if (currentOrder) {
+			return currentOrder.order_items.filter(orderItem => {
+				return orderItem ? orderItem.item.id === id : false
+			}).length
+		} else {
+			return 0
+		}
+	}
+
 	render() {
-		const { item: { imgURL, name, price, description } } = this.props
+		const { item: { imgURL, name, price, description }, currentOrder, selectedRestaurantId } = this.props
 		return (
 			<Container>
 				<Item.Group>
@@ -16,11 +40,21 @@ class FoodItem extends Component {
 							/>
 							<div>
 								<br />
-								<Button color='red' icon='minus' size='mini' inverted/>
+								<Button
+									color='red'
+									icon='minus'
+									size='mini'
+									inverted
+								/>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span>0</span>
+								<span>{this.count()}</span>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<Button color='green' icon='plus' size='mini' inverted/>
+								<Button
+									color='green'
+									icon='plus'
+									size='mini'
+									inverted									onClick={this.add}
+								/>
 							</div>
 						</Container>
 
@@ -45,4 +79,9 @@ class FoodItem extends Component {
 	}
 }
 
-export default FoodItem
+const mapStateToprops = ({ user: { selectedRestaurantId, currentOrder } }) => ({
+	selectedRestaurantId,
+	currentOrder
+})
+
+export default connect(null, { addItem })(FoodItem)

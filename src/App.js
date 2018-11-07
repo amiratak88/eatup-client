@@ -17,7 +17,12 @@ class App extends Component {
 		return (
 				<Container>
 					<Switch>
-						{/* <Redirect exact from='/' to='/users/login' component={} /> */}
+						{/* <Redirect
+							exact
+							from='/'
+							to='/users/login'
+							render={(routerProps) => <UserLogin {...routerProps} />}
+						/> */}
 						<Route path='/users/login' render={(routerProps) => <UserLogin {...routerProps} />} />
 						<Route path='/users/signup' component={UserSignup} />
 						<Route path='/managers/signup' component={ManagerSignup} />
