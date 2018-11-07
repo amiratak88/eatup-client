@@ -1,5 +1,5 @@
 import { API_ROOT, HEADERS } from '../constants/index'
-import { persist, searchRestaurantsAdapter, initializeOrderAdapter, addItemAdapter } from '../adapters/userAdapter'
+import { persist, searchRestaurantsAdapter, initializeOrderAdapter, addItemAdapter, removeItemAdapter } from '../adapters/userAdapter'
 
 export const getUserData = (token) => {
 	return (dispatch) => {
@@ -54,6 +54,13 @@ export const selectRestaurant = (id) => ({
 	payload: { id }
 })
 
-// export const removeItem = (id) => {
-// 	return (dispatch)
-// }
+export const removeItem = (data) => {
+	return (dispatch) => {
+		dispatch({ type: 'START_REMOVING_ITEM'})
+		return removeItemAdapter(data)
+			.then(orderItem => dispatch({
+				type: 'REMOVE_ITEM',
+				payload: { orderItem }
+			}))
+	}
+}
