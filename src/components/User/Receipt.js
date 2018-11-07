@@ -41,7 +41,7 @@ class Receipt extends Component {
 		for (const food in receiptItems) {
 			const { qty, price } = receiptItems[food]
 			receiptItemComponents.push(
-				<ReceiptItem name={food} price={price} qty={qty} />
+				<ReceiptItem key={food.id} name={food} price={price} qty={qty} />
 			)
 		}
 

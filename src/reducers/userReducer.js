@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
 		case 'INITIALIZE_ORDER':
 			return {
 				...state,
-				orders: [...state.orders, action.payload.order],
+				// orders: [...state.orders, action.payload.order],
 				currentOrder: action.payload.order
 			}
 		case 'ADD_ITEM':
@@ -41,7 +41,6 @@ export default (state = initialState, action) => {
 				selectedRestaurantId: action.payload.id
 			}
 		case 'REMOVE_ITEM':
-		console.log("in reduce - remove item")
 			const orderItems = state.currentOrder.order_items
 			let idxToBeRemoved
 			for (let i = 0; i < orderItems.length; i++) {
@@ -61,6 +60,21 @@ export default (state = initialState, action) => {
 						.concat(state.currentOrder.order_items.slice(idxToBeRemoved + 1))
 				}
 			}
+		case 'FINALIZE_ORDER':
+		return {
+			...state,
+			orders: [
+				...state.orders,
+				{
+					...state.currentOrder,
+					status: "finalized"
+				}
+			],
+			currentOrder: {
+				...state.currentOrder,
+				status: "finalized"
+			}
+		}
 		default:
 			return {
 				...initialState,
