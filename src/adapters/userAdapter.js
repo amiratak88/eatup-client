@@ -40,3 +40,12 @@ export const addItemAdapter = (data) => {
 	})
 		.then(res => res.json())
 }
+
+export const removeItemAdapter = (data) => {
+	return fetch(`${API_ROOT}/order_items`, {
+		method: 'DELETE',
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(data)
+	})
+		.then(res => res.json())
+}
