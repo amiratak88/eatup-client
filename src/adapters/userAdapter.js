@@ -49,3 +49,12 @@ export const removeItemAdapter = (data) => {
 	})
 		.then(res => res.json())
 }
+
+export const finalizeOrderAdapter = (id) => {
+	return fetch(`${API_ROOT}/orders/${id}`, {
+		method: 'PATCH',
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify({ status: "finalized" })
+	})
+		.then(res => res.json())
+}
