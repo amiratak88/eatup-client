@@ -40,6 +40,27 @@ export default (state = initialState, action) => {
 				...state,
 				selectedRestaurantId: action.payload.id
 			}
+		case 'REMOVE_ITEM':
+		console.log("in reduce - remove item")
+			const orderItems = state.currentOrder.order_items
+			let idxToBeRemoved
+			for (let i = 0; i < orderItems.length; i++) {
+				if (orderItems[i].id === action.payload.orderItem.id) {
+					idxToBeRemoved = i
+					break
+				} else {
+					return state
+				}
+			}
+			return {
+				...state,
+				currentOrder: {
+					...state.currentOrder,
+					order_items: 
+						state.currentOrder.order_items.slice(0, idxToBeRemoved)
+						.concat(state.currentOrder.order_items.slice(idxToBeRemoved + 1))
+				}
+			}
 		default:
 			return {
 				...initialState,

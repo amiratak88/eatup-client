@@ -2,13 +2,19 @@ import React, { Component } from 'react'
 import { Container, Item, Button } from 'semantic-ui-react'
 import { defaultImgURL } from '../../constants/index'
 import { connect } from 'react-redux'
-import { addItem } from '../../actions/userActions'
+import { addItem, removeItem } from '../../actions/userActions'
 
 class FoodItem extends Component {
 
 	add = () => {
-		console.log("FoodItem PROPS:", this.props)
 		this.props.addItem({
+			item_id: this.props.item.id,
+			order_id: this.props.currentOrder.id
+		})
+	}
+
+	remove = () => {
+		this.props.removeItem({
 			item_id: this.props.item.id,
 			order_id: this.props.currentOrder.id
 		})
@@ -45,6 +51,7 @@ class FoodItem extends Component {
 									icon='minus'
 									size='mini'
 									inverted
+									onClick={this.remove}
 								/>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span>{this.count()}</span>
@@ -53,7 +60,8 @@ class FoodItem extends Component {
 									color='green'
 									icon='plus'
 									size='mini'
-									inverted									onClick={this.add}
+									inverted
+									onClick={this.add}
 								/>
 							</div>
 						</Container>
@@ -84,4 +92,4 @@ const mapStateToprops = ({ user: { selectedRestaurantId, currentOrder } }) => ({
 	currentOrder
 })
 
-export default connect(null, { addItem })(FoodItem)
+export default connect(null, { addItem, removeItem })(FoodItem)
