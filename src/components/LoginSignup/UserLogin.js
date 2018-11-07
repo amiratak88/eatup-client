@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Header, Form, Button, Input } from 'semantic-ui-react'
 import { login } from '../../adapters/userAdapter'
-import { withRouter } from 'react-router-dom'
-import UserDashboard from '../User/UserDashboard'
+
 
 const initialState = {
 	username: '',
@@ -30,7 +29,6 @@ class UserLogin extends Component {
 	}
 
 	render() {
-		const token = localStorage.getItem('token')
 			return (
 				<Container textAlign='center' style={{width: '35%'}}>
 					<Header as='h1'>Log in as a user</Header>

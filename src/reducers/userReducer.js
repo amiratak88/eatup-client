@@ -29,7 +29,10 @@ export default (state = initialState, action) => {
 				...state,
 				currentOrder: {
 					...state.currentOrder,
-					order_items: [state.currentOrder.items, action.payload.item]
+					order_items: [
+						...state.currentOrder.order_items,
+						action.payload.orderItem
+					]
 				}
 			}
 		case 'SELECT_RESTAURANT':

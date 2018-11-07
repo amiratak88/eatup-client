@@ -9,7 +9,7 @@ import ManagerSignup from './components/LoginSignup/ManagerSignup'
 import UserDashboard from './components/User/UserDashboard'
 import ManagerDashboard from './components/Manager/ManagerDashboard'
 import { ActionCable } from 'react-actioncable-provider'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
 
