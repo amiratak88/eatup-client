@@ -19,11 +19,11 @@ class Order extends Component {
 	renderStep() {
 		switch (this.state.step) {
 			case 1:
-				return <Order1 />
+				return <Order1 nextStep={this.nextStep} />
 			case 2:
-				return <Order2 />
+				return <Order2 nextStep={this.nextStep} />
 			case 3:
-				return <Order3 />
+				return <Order3 nextStep={this.nextStep} />
 			case 4:
 				return <Order4 />
 		}

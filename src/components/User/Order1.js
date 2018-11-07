@@ -9,7 +9,7 @@ class Order1 extends Component {
 		open: true
 	}
 
-	handleClose = () => this.setState({ open: false })
+	// handleClose = () => this.setState({ open: false })
 
 	getFoodItems() {
 		const selectedRestaurant = this.props.searchedRestaurants.find(r => r.id === this.props.selectedRestaurantId)
@@ -33,7 +33,7 @@ class Order1 extends Component {
 				</Modal.Content>
 				<Modal.Actions>
 					<Container textAlign='center'>
-						<Button color='green' onClick={this.handleClose} inverted>
+						<Button color='green' onClick={this.props.nextStep} inverted>
 							Review your bag <Icon name='right chevron' />
 						</Button>
 					</Container>
