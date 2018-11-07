@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { List, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import ReceiptItem from './ReceiptItem';
+import uuid from 'uuid'
 
 class Receipt extends Component {
 
@@ -41,7 +42,7 @@ class Receipt extends Component {
 		for (const food in receiptItems) {
 			const { qty, price } = receiptItems[food]
 			receiptItemComponents.push(
-				<ReceiptItem key={food.id} name={food} price={price} qty={qty} />
+				<ReceiptItem key={uuid()} name={food} price={price} qty={qty} />
 			)
 		}
 

@@ -17,6 +17,13 @@ export default class Order4 extends Component {
 				size='small'
 			>
 				<Header content='Final Step' />
+				<Modal.Content style={{fontSize: "1.2rem"}}>
+					<p>
+						Your order was succefully completed and waiting to be
+						confirmed.
+					</p>
+					<p>Thank you for ordering with Eatup</p>
+				</Modal.Content>
 				<Modal.Content>
 					<Header as='h2' content='Order Confirmation'></Header>
 					
