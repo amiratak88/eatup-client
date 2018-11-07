@@ -55,19 +55,19 @@ class Receipt extends Component {
 				<Divider />
 				<List.Item>
 					<List.Content floated='right'>
-						Subtotal: ${this.subTotal()}
+						Subtotal: ${this.subTotal().toFixed(2)}
 					</List.Content>
 					{/* image */}
 				</List.Item>
 				<List.Item>
 					<List.Content floated='right'>
-						Tax: ${Math.round(this.subTotal() * 0.08625 * 100) / 100}
+						Tax: ${(this.subTotal() * 0.08625).toFixed(2)}
 					</List.Content>
 					{/* image */}
 				</List.Item>
 				<List.Item>
 					<List.Content floated='right'>
-						Total: ${Math.round(this.subTotal() * 1.08625 * 100) / 100}
+						Total: ${(this.subTotal() * 1.08625).toFixed(2)}
 					</List.Content>
 					{/* image */}
 				</List.Item>
