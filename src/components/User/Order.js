@@ -30,7 +30,10 @@ class Order extends Component {
 	}
 
 	nextStep = () => {
-		this.setState({step: this.state.step + 1})
+		this.setState({
+			step:
+				this.state.step === 1 ? 2 : 4
+		})
 	}
 
 	render() {

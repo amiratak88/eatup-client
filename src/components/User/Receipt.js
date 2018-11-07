@@ -1,50 +1,73 @@
 import React, { Component } from 'react'
 import { List, Divider } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import ReceiptItem from './ReceiptItem';
 
 class Receipt extends Component {
+
+	subTotal = () => {
+
+		const receiptItems = this.receiptItems()
+		let subTotal = 0
+
+		for (const food in receiptItems) {
+			const { qty, price } = receiptItems[food]
+			subTotal += (qty * price)
+		}
+
+		return subTotal
+	}
+
+	receiptItems = () => {
+
+		const receiptItems = {}
+
+		this.props.currentOrder.order_items.forEach(orderItem => {
+			if (receiptItems[orderItem.item.name]) {
+				receiptItems[orderItem.item.name].qty++
+			} else {
+				receiptItems[orderItem.item.name] = {qty: 1, price: orderItem.item.price}
+			}
+		})
+
+		return receiptItems
+	}
+
+	getReceiptItems = () => {
+
+		const receiptItemComponents = []
+		const receiptItems = this.receiptItems()
+
+		for (const food in receiptItems) {
+			const { qty, price } = receiptItems[food]
+			receiptItemComponents.push(
+				<ReceiptItem name={food} price={price} qty={qty} />
+			)
+		}
+
+		return receiptItemComponents
+	}
+
 	render() {
 		return (
 			<List verticalAlign='middle'>
-				<List.Item>
-					<List.Content floated='right'>
-						$10.00
-					</List.Content>
-					{/* image */}
-					<List.Content>1 x Hamburger</List.Content>
-				</List.Item>
-				<List.Item>
-					<List.Content floated='right'>
-						$36.00
-					</List.Content>
-					{/* image */}
-					<List.Content>3 x Chicken Kebob</List.Content>
-				</List.Item>
-				<List.Item>
-					<List.Content floated='right'>
-						$4.00
-					</List.Content>
-					{/* image */}
-					<List.Content>2 x Soda Can</List.Content>
-				</List.Item>
-				<List.Item>
-					<List.Content floated='right'>
-						$11.50
-					</List.Content>
-					{/* image */}
-					<List.Content>
-						2 x Double Quarter Pounder with Cheese
-					</List.Content>
-				</List.Item>
+				{this.getReceiptItems()}
 				<Divider />
 				<List.Item>
 					<List.Content floated='right'>
-						Tax: $5.30
+						Subtotal: ${this.subTotal()}
 					</List.Content>
 					{/* image */}
 				</List.Item>
 				<List.Item>
 					<List.Content floated='right'>
-						Total: $66.80
+						Tax: ${Math.round(this.subTotal() * 0.08625 * 100) / 100}
+					</List.Content>
+					{/* image */}
+				</List.Item>
+				<List.Item>
+					<List.Content floated='right'>
+						Total: ${Math.round(this.subTotal() * 1.08625 * 100) / 100}
 					</List.Content>
 					{/* image */}
 				</List.Item>
@@ -53,4 +76,8 @@ class Receipt extends Component {
 	}
 }
 
-export default Receipt
+const mapStateToProps = (state) => ({
+	currentOrder: state.user.currentOrder,
+})
+
+export default connect(mapStateToProps)(Receipt)
