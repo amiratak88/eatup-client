@@ -2,13 +2,21 @@ import React, { Component } from 'react'
 import { Button, Header, Icon, Modal, Container } from 'semantic-ui-react'
 import FoodItem from './FoodItem'
 import Receipt from './Receipt'
+import { finalizeOrder } from '../../actions/userActions'
+import { connect } from 'react-redux'
+import Order from './Order';
 
-export default class Order4 extends Component {
+class Order4 extends Component {
 	state = {
 		open: true
 	}
 
-	handleClose = () => this.setState({ open: false })
+	handleClick = () => {
+		const { finalizeOrder, currentOrder } = this.props
+
+		finalizeOrder(currentOrder.id)
+			.then(() => this.setState({ open: false }))
+	}
 
 	render() {
 		return (
@@ -35,7 +43,7 @@ export default class Order4 extends Component {
 							content='OK'
 							icon='check'
 							color='green'
-							onClick={this.handleClose}
+							onClick={this.handleClick}
 							inverted
 						/>
 					</Container>
@@ -44,3 +52,9 @@ export default class Order4 extends Component {
 		)
 	}
 }
+
+const mapStateToProps = (state) => ({
+	currentOrder: state.user.currentOrder
+})
+
+export default connect(mapStateToProps, { finalizeOrder })(Order4)

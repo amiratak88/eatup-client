@@ -2,16 +2,9 @@ import React, { Component } from 'react'
 import { Button, Header, Icon, Modal, Container } from 'semantic-ui-react'
 import FoodItem from './FoodItem'
 import { connect } from 'react-redux';
-import { finalizeOrder } from '../../actions/userActions'
 class Order2 extends Component {
 	state = {
 		open: true
-	}
-
-	handleClick = () => {
-		const { finalizeOrder, currentOrder, nextStep } = this.props
-		finalizeOrder(currentOrder.id)
-			.then(() => nextStep())
 	}
 
 	getFoodItems = () => {
@@ -43,7 +36,7 @@ class Order2 extends Component {
 				</Modal.Content>
 				<Modal.Actions>
 					<Container textAlign='center'>
-						<Button color='green' onClick={this.handleClick} inverted>
+						<Button color='green' onClick={this.props.nextStep} inverted>
 							Proceed to Checkout <Icon name='right chevron' />
 						</Button>
 					</Container>
@@ -59,4 +52,4 @@ const mapStateToProps = (state) => ({
 	searchedRestaurants: state.user.searchedRestaurants
 })
 
-export default connect(mapStateToProps, { finalizeOrder })(Order2)
+export default connect(mapStateToProps)(Order2)

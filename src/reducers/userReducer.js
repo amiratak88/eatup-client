@@ -70,10 +70,7 @@ export default (state = initialState, action) => {
 					status: "finalized"
 				}
 			],
-			currentOrder: {
-				...state.currentOrder,
-				status: "finalized"
-			}
+			currentOrder: {...initialState.currentOrder}
 		}
 		default:
 			return {
