@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Item, Button } from 'semantic-ui-react'
-import { defaultImgURL } from '../../constants/index'
+import { defaultFoodImgURL } from '../../constants/index'
 import { connect } from 'react-redux'
 import { addItem, removeItem } from '../../actions/userActions'
 
@@ -42,7 +42,7 @@ class FoodItem extends Component {
 						<Container>
 							<Item.Image
 								size='small'
-								src={imgURL ? imgURL : defaultImgURL }
+								src={imgURL ? imgURL : defaultFoodImgURL }
 							/>
 							<div>
 								<br />

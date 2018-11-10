@@ -1,5 +1,4 @@
 const initialState = {
-	user: {},
 	searchedRestaurants: [],
 	currentOrder: {order_items: []},
 	orders: [],
@@ -11,7 +10,7 @@ export default (state = initialState, action) => {
 		case 'GET_USER_DATA':
 			return {
 				...state,
-				user: action.payload.userData
+				...action.payload.userData
 			}
 		case 'SEARCH_RESTAURANTS':
 			return {

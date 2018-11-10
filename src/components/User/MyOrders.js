@@ -6,19 +6,25 @@ import { connect } from 'react-redux'
 
 class myOrders extends Component {
 
+	getOrders() {
+		return this.props.orders.map(order => {
+			return <MyOrder order={order} />
+		})
+	}
+
 	render() {
+		console.log("MyOrders PROPS", this.props)
 		return (
 			<Container>
 				<UserNav history={this.props.history}/>
-				In My Orders
-				<MyOrder />
-				<MyOrder />
-				<MyOrder />
-				<MyOrder />
-				<MyOrder />
+				{this.getOrders()}
 			</Container>
 		)
 	}
 }
 
-export default connect()(myOrders)
+const mapStateToProps = (state) => ({
+	orders: state.user.orders
+})
+
+export default connect(mapStateToProps)(myOrders)

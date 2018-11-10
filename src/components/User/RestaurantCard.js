@@ -1,13 +1,13 @@
 import React from 'react'
 import { Button, Item } from 'semantic-ui-react'
-import { defaultImgURL } from '../../constants/index'
+import { defaultRestaurantImgURL } from '../../constants/index'
 import { selectRestaurant } from '../../actions/userActions'
 import { connect } from 'react-redux'
 
 const RestaurantCard = ({ restaurant: { id, name, imgURL, description, address }, selectRestaurant }) => (
 	<Item.Group>
 		<Item>
-			<Item.Image size='small' src={imgURL ? imgURL : defaultImgURL} />
+			<Item.Image size='small' src={imgURL ? imgURL : defaultRestaurantImgURL} />
 
 			<Item.Content>
 				<Item.Header as='a'>{name}</Item.Header>
