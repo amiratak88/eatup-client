@@ -8,7 +8,7 @@ class myOrders extends Component {
 
 	getOrders() {
 		return this.props.orders.map(order => {
-			return <MyOrder order={order} />
+			return <MyOrder key={order.id} order={order} />
 		})
 	}
 
