@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class UserNav extends Component {
 	state = {
-		activeItem: 'Order Now'
+		activeItem: ''
 	}
 
-	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+	componentDidMount() {
+		// console.log('UserNav props', this.props)
+		const pathName = this.props.history.location.pathname
+		this.setState({activeItem: pathName.slice(7)})
+	}
+	
 
 	logout = () => {
 		localStorage.clear()
@@ -19,9 +24,9 @@ export default class UserNav extends Component {
 			return (
 				<Menu tabular>
 					<Menu.Item name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} />
-					<Menu.Item name='Order Now' active={activeItem === 'Order Now'} onClick={this.handleItemClick} />
-					<Menu.Item name='My Orders' active={activeItem === 'My Orders'} onClick={this.handleItemClick} />
-					<Menu.Item name='Favorite Restaurants' active={activeItem === 'Favorite Restaurants'} onClick={this.handleItemClick} />
+					<Link to='/users/order_now'><Menu.Item name='order_now' active={activeItem === 'order_now'} /></Link>
+					<Link to='/users/my_orders'><Menu.Item name='my_orders' active={activeItem === 'my_orders'} /></Link>
+					<Menu.Item name='Favorite Restaurants' active={activeItem === 'Favorite Restaurants'} />
 					<Button
 						color='red'
 						content='Log out'

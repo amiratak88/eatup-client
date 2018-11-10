@@ -61,17 +61,17 @@ export default (state = initialState, action) => {
 				}
 			}
 		case 'FINALIZE_ORDER':
-		return {
-			...state,
-			orders: [
-				...state.orders,
-				{
-					...state.currentOrder,
-					status: "finalized"
-				}
-			],
-			currentOrder: {...initialState.currentOrder}
-		}
+			return {
+				...state,
+				orders: [
+					...state.orders,
+					{
+						...state.currentOrder,
+						status: "finalized"
+					}
+				],
+				currentOrder: {...initialState.currentOrder}
+			}
 		default:
 			return {
 				...initialState,

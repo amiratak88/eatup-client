@@ -4,17 +4,25 @@ import SearchBar from './SearchBar'
 import RestaurantCard from './RestaurantCard'
 import Order from './Order'
 import { connect } from 'react-redux'
+import UserNav from './UserNav'
+import { getUserData } from '../../actions/userActions'
 
 class OrderNow extends Component {
+
+	componentDidMount() {
+		const token = localStorage.getItem('token')
+		this.props.getUserData(token)
+	}
 
 	getRestaurantCards() {
 		return this.props.user.searchedRestaurants.map(r => <RestaurantCard key={r.id} restaurant={r} />)
 	}
 
 	render() {
-		console.log("OrderNow props", this.props.user)
+		// console.log("OrderNow props", this.props.user)
 		return (
 			<Container>
+				<UserNav history={this.props.history}/>
 				{this.props.user.selectedRestaurantId && <Order />}
 				<Header as='h1'>Select your restaurant</Header>
 				<SearchBar /><br />
@@ -26,4 +34,9 @@ class OrderNow extends Component {
 	}
 }
 
-export default connect(({ user, selectedRestaurantId }) => ({ user, selectedRestaurantId }))(OrderNow)
+const mapStateToProps = (state) =>({
+	user: state.user,
+	selectedRestaurantId: state.selectedRestaurantId
+})
+
+export default connect(mapStateToProps, { getUserData })(OrderNow)

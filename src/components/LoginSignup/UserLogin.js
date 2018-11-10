@@ -13,7 +13,7 @@ class UserLogin extends Component {
 	state = initialState
 
 	componentDidMount() {
-		localStorage.getItem('token') && this.props.history.push('/users/dashboard')
+		localStorage.getItem('token') && this.props.history.push('/users/order_now')
 	}
 
 	handleChange = e => this.setState({[e.target.name]: e.target.value})
