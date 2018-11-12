@@ -1,19 +1,60 @@
-import React from 'react'
-import { Container } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Container, Header, Form, Button, Input } from 'semantic-ui-react'
+import { login } from '../../adapters/managerAdapter'
 
-export default props => (
-	<Container className="loginsignup managerlogin">
-		<br />
-		<h1>Log In</h1><br />
+const initialState = {
+	username: '',
+	password: ''
+}
 
-		<label htmlFor="username">Username: </label>
-		<input id="username" type="text" /><br /><br />
+class ManagerLogin extends Component {
 
-		<label htmlFor="password">Password: </label>
-		<input id="password" type="password" /><br /><br />
+	state = initialState
 
-		<input type="submit" value="Log in"/><br /><br />
+	componentDidMount() {
+		localStorage.getItem('token') && this.props.history.push('/managers/new_orders')
+	}
 
-		<p>Don't have and account? <a href="#">Signup</a></p>
-	</Container>
-)
+	handleChange = e => this.setState({[e.target.name]: e.target.value})
+
+	handleSubmit = e => {
+		e.preventDefault()
+		this.setState(initialState)
+		login(this.state)
+			.then(data => {
+				localStorage.setItem('token', data.token)
+				this.props.history.push('/users/order_now')
+			})
+	}
+
+	render() {
+			return (
+				<Container textAlign='center' style={{width: '35%'}}>
+					<Header as='h1'>Log in as a manager</Header>
+					<Form onSubmit={this.handleSubmit}>
+						<Form.Field>
+							<label htmlFor='username'>Username</label>
+							<Input
+								name = 'username'
+								type='text'
+								placeholder='Please enter your username'
+								onChange={this.handleChange}
+							/>
+						</Form.Field>
+						<Form.Field>
+							<label htmlFor='password'>Password</label>
+							<Input
+								name='password'
+								type='password'
+								placeholder='Please enter your password'
+								onChange={this.handleChange}
+							/>
+						</Form.Field>
+						<Button type='submit'>Log in</Button>
+					</Form>
+				</Container>
+			)
+	}
+}
+
+export default ManagerLogin
