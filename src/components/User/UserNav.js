@@ -17,6 +17,7 @@ export default class UserNav extends Component {
 
 	logout = () => {
 		localStorage.clear()
+		this.props.history.push('/users/login')
 	}
 
 	render() {
