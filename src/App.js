@@ -7,7 +7,6 @@ import UserSignup from './components/LoginSignup/UserSignup'
 import ManagerLogin from './components/LoginSignup/ManagerLogin'
 import ManagerSignup from './components/LoginSignup/ManagerSignup'
 import ManagerDashboard from './components/Manager/ManagerDashboard'
-import { ActionCable } from 'react-actioncable-provider'
 import { Switch, Route } from 'react-router-dom'
 import OrderNow from './components/User/OrderNow'
 import MyOrders from './components/User/MyOrders'
@@ -44,12 +43,6 @@ class App extends Component {
 						<Route path='/managers/signup' component={ManagerSignup} />
 						<Route path='/managers/login' component={ManagerLogin} />
 						<Route path='/managers/dashboard' component={ManagerDashboard} />
-						
-						{/* <ActionCable
-							key={2}
-							channel={{ channel: 'ManagersChannel', manager: 2 }}
-							onReceived={console.log}
-						/> */}
 					</Switch>
 				</Container>
 		)
