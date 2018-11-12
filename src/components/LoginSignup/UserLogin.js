@@ -24,7 +24,7 @@ class UserLogin extends Component {
 		login(this.state)
 			.then(data => {
 				localStorage.setItem('token', data.token)
-				this.props.history.push('/users/dashboard')
+				this.props.history.push('/users/order_now')
 			})
 	}
 
