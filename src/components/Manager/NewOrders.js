@@ -3,16 +3,22 @@ import { Container } from 'semantic-ui-react'
 import NewOrder from './NewOrder'
 import ManagerNav from './ManagerNav'
 import OrdersNav from './OrdersNav'
+import { getManagerData } from '../../actions/managerActions'
+import { connect } from 'react-redux';
 
-export default class NewOrders extends Component {
+class NewOrders extends Component {
 
 	componentDidMount() {
 		const token = localStorage.getItem('token')
 		if (token) {
-			
+			this.props.getManagerData(token)
 		} else {
 			this.props.history.push('/managers/login')
 		}
+	}
+
+	getNewOrders() {
+
 	}
 	
 	render() {
@@ -30,4 +36,4 @@ export default class NewOrders extends Component {
 	}
 }
 
-
+export default connect(null, { getManagerData })(NewOrders)

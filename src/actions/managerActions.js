@@ -1,5 +1,4 @@
 import { persist } from '../adapters/managerAdapter'
-import { API_ROOT } from '../constants/index'
 
 export const getManagerData = (token) => {
 	return (dispatch) => {
