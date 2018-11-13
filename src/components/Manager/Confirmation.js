@@ -5,19 +5,15 @@ import Receipt from './Receipt'
 
 
 export default class Confirmation extends Component {
-	state = {
-		open: true
-	}
 
-	handleClose = () => this.setState({ open: false })
+	confirm = () => {
+		this.props.toggleConfirmation()
+	}
 
 	render() {
 		return (
-			<Modal
-				open={this.state.open}
-				size='small'
-			>
-					<Header textAlign='center' content='Pickup Order' />
+			<Modal size='small' open={this.props.showConfirmation.toString()}>
+				<Header textAlign='center' content='Pickup Order' />
 				<Modal.Content>
 					<Container textAlign='center'>
 						Received on 1/1/2018 at 4:30 pm
@@ -33,30 +29,35 @@ export default class Confirmation extends Component {
 							onClick={this.handleClose}
 							inverted
 							content='0 - 10 mins'
+							onClick={this.confirm}
 						/>
 						<Button
 							primary
 							onClick={this.handleClose}
 							inverted
 							content='10 - 15 mins'
+							onClick={this.confirm}
 						/>
 						<Button
 							primary
 							onClick={this.handleClose}
 							inverted
 							content='15 - 30 mins'
+							onClick={this.confirm}
 						/>
 						<Button
 							primary
 							onClick={this.handleClose}
 							inverted
 							content='30 - 45 mins'
+							onClick={this.confirm}
 						/>
 						<Button
 							primary
 							onClick={this.handleClose}
 							inverted
 							content='over 45 mins'
+							onClick={this.confirm}
 						/>
 					</Container>
 				</Modal.Actions>
