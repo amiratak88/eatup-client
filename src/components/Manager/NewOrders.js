@@ -18,22 +18,25 @@ class NewOrders extends Component {
 	}
 
 	getNewOrders() {
-
+		return this.props.new_orders.map(order => {
+			return <NewOrder key={order.id} order={order} />
+		})
 	}
 	
 	render() {
+		// console.log("NewOrders PROPS", this.props)
 		return (
 			<Container textAlign='left'>
 				<ManagerNav history={this.props.history} />
 				<OrdersNav history={this.props.history} />
-
-				<NewOrder />
-				<NewOrder />
-				<NewOrder />
-				<NewOrder />
+				{this.getNewOrders()}
 			</Container>
 		)
 	}
 }
 
-export default connect(null, { getManagerData })(NewOrders)
+const mapStateToProps = (state) => ({
+	new_orders: state.manager.new_orders
+})
+
+export default connect(mapStateToProps, { getManagerData })(NewOrders)

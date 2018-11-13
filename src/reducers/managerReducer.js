@@ -1,5 +1,5 @@
 const initialState = {
-	orders: []
+	new_orders: []
 }
 
 export default (state = initialState, action) => {

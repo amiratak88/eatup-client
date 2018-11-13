@@ -3,7 +3,7 @@ import { Button, Item } from 'semantic-ui-react'
 import Confirmation from './Confirmation'
 
 export default () => (
-	<Item.Group fluid>
+	<Item.Group fluid="true">
 		{/* <Confirmation /> */}
 		<Item>
 			<Item.Image size='tiny' src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/user-male-icon.png' />
