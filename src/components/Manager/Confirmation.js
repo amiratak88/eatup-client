@@ -2,17 +2,20 @@ import React, { Component } from 'react'
 import { Button, Header, Modal, Container, Input } from 'semantic-ui-react'
 import User from './User'
 import Receipt from './Receipt'
+import { confirmOrder } from '../../actions/managerActions'
+import { connect } from 'react-redux'
 
 
-export default class Confirmation extends Component {
+class Confirmation extends Component {
 
 	confirm = () => {
+		this.props.confirmOrder(this.props.order.id)
 		this.props.toggleConfirmation()
 	}
 
 	render() {
 		return (
-			<Modal size='small' open={this.props.showConfirmation.toString()}>
+			<Modal size='small' open={this.props.showConfirmation}>
 				<Header textAlign='center' content='Pickup Order' />
 				<Modal.Content>
 					<Container textAlign='center'>
@@ -65,3 +68,5 @@ export default class Confirmation extends Component {
 		)
 	}
 }
+
+export default connect(null, { confirmOrder })(Confirmation)
