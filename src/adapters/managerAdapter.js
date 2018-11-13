@@ -17,3 +17,12 @@ export const persist = (token) => {
 	})
 		.then(res => res.json())
 }
+
+export const confirmOrderAdpater = (id) => {
+	return fetch(`${API_ROOT}/orders/${id}`, {
+		method: 'PATCH',
+		headers: HEADERS,
+		body: JSON.stringify({status: "confirmed"})
+	})
+		.then(res => res.json())
+}
