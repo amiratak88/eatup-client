@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Header, Form, Button, Input } from 'semantic-ui-react'
-import { login } from '../../adapters/userAdapter'
+import { login } from '../../adapters/managerAdapter'
 
 const initialState = {
 	username: '',

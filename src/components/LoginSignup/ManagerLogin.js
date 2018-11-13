@@ -23,7 +23,7 @@ class ManagerLogin extends Component {
 		login(this.state)
 			.then(data => {
 				localStorage.setItem('token', data.token)
-				this.props.history.push('/users/order_now')
+				this.props.history.push('/managers/new_orders')
 			})
 	}
 
