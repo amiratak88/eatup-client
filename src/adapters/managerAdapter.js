@@ -9,3 +9,11 @@ export const login = (data) => {
 		.then(res => res.ok || !res.json().error ? res.json() : null)
 		.catch(res => null)
 }
+
+export const persist = (token) => {
+	return fetch(`${API_ROOT}/managers/persist`, {
+		method: 'GET',
+		headers: {"Authorization": token}
+	})
+		.then(res => res.json())
+}

@@ -7,7 +7,12 @@ import OrdersNav from './OrdersNav'
 export default class NewOrders extends Component {
 
 	componentDidMount() {
-		
+		const token = localStorage.getItem('token')
+		if (token) {
+			
+		} else {
+			this.props.history.push('/managers/login')
+		}
 	}
 	
 	render() {
