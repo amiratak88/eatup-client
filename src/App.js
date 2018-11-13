@@ -10,6 +10,7 @@ import ManagerDashboard from './components/Manager/ManagerDashboard'
 import { Switch, Route } from 'react-router-dom'
 import OrderNow from './components/User/OrderNow'
 import MyOrders from './components/User/MyOrders'
+import NewOrders from './components/Manager/NewOrders'
 
 class App extends Component {
 
@@ -42,7 +43,9 @@ class App extends Component {
 						{/* Manager Routes */}
 						<Route path='/managers/signup' component={ManagerSignup} />
 						<Route path='/managers/login' component={ManagerLogin} />
-						<Route path='/managers/dashboard' component={ManagerDashboard} />
+						<Route path='/managers/new_orders' render={(routerProps) => {
+							return <NewOrders {...routerProps} />
+						}} />
 					</Switch>
 				</Container>
 		)
