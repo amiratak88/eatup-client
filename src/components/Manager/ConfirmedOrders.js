@@ -9,7 +9,7 @@ class ConfirmedOrders extends Component {
 
 	getConfirmedOrders() {
 		return this.props.confirmed_orders.map(o => {
-			return <ConfirmedOrder order={o} />
+			return <ConfirmedOrder key={o.id} order={o} />
 		})
 	}
 
