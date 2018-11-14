@@ -71,6 +71,17 @@ export default (state = initialState, action) => {
 				],
 				currentOrder: {...initialState.currentOrder}
 			}
+		case 'UPDATE_RECEIVED_ORDER':
+			const targetOrder = state.orders.find(o => o.id === action.payload.id)
+			const targetOrderIndex = state.orders.indexOf(targetOrder)
+			return {
+				...state,
+				orders: [
+					...state.orders.slice(0, targetOrderIndex),
+					action.payload,
+					...state.orders.slice(targetOrderIndex + 1)
+				]
+			}
 		default:
 			return {
 				...initialState,
