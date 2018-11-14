@@ -18,6 +18,14 @@ export default (state = initialState, action) => {
 				new_orders: state.new_orders.slice(0, targetOrderIndex).concat(state.new_orders.slice(targetOrderIndex + 1)),
 				confirmed_orders: [...state.confirmed_orders, action.payload]
 			}
+		case 'ADD_RECEIVED_ORDER':
+			return {
+				...state,
+				new_orders: [
+					action.payload,
+					...state.new_orders
+				]
+			}
 		default:
 			return state
 	}
