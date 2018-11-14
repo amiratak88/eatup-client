@@ -25,3 +25,10 @@ export const confirmOrder = (id) => {
 			})
 	}
 }
+
+export const addReceivedOrder = (order) => {
+	return {
+		type: 'ADD_RECEIVED_ORDER',
+		payload: order
+	}
+}
