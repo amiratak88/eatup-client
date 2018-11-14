@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { ActionCable } from 'react-actioncable-provider'
+import { updateReceivedOrder } from '../../actions/userActions'
+import { connect } from 'react-redux'
 
-export default class UserNav extends Component {
+class UserNav extends Component {
 	state = {
 		activeItem: ''
 	}
@@ -13,7 +15,6 @@ export default class UserNav extends Component {
 		const pathName = this.props.history.location.pathname
 		this.setState({activeItem: pathName.slice(7)})
 	}
-	
 
 	logout = () => {
 		localStorage.clear()
@@ -36,10 +37,11 @@ export default class UserNav extends Component {
 					/>
 					<ActionCable
 						channel={{ channel: 'UsersChannel', user: localStorage.getItem('token') }}
-						onReceived={data => console.log("ACTIONCABLE", data)}
+						onReceived={this.props.updateReceivedOrder}
 					/>
 				</Menu>
 			)
-		
 	}
 }
+
+export default connect(null, { updateReceivedOrder })(UserNav)

@@ -81,3 +81,11 @@ export const finalizeOrder = (id) => {
 			}))
 	}
 }
+
+// This action is designated to handle the order received from websockets
+export const updateReceivedOrder = (order) => {
+	return {
+		type: 'UPDATE_RECEIVED_ORDER',
+		payload: order
+	}
+}
