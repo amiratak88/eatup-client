@@ -5,26 +5,28 @@ import Receipt from './Receipt'
 
 
 export default class View extends Component {
-	state = {
-		open: true
-	}
-
-	handleClose = () => this.setState({ open: false })
 
 	render() {
+		const {
+			order: {
+				user,
+				order_items
+			}
+		} = this.props
+
 		return (
 			<Modal
-				open={this.state.open}
+				open={this.props.showView}
 				size='small'
 			>
-					<Header textAlign='center' content='Pickup Order' />
+				<Header textAlign='center' content='Pickup Order' />
 				<Modal.Content>
 					<Container textAlign='center'>
 						<p>Received on 1/1/2018 at 4:30 pm</p>
 						<p>Promised by 1/1/2018 at 4:30 pm</p>
 					</Container>
-					<User />
-					<Receipt />
+					<User user={user} />
+					<Receipt order_items={order_items} />
 				</Modal.Content>
 				<Modal.Actions>
 					<Container textAlign='center'>
@@ -32,6 +34,7 @@ export default class View extends Component {
 							positive
 							content='OK'
 							icon='check'
+							onClick={this.props.toggleView}
 						/>
 						<Button
 							color='pink'

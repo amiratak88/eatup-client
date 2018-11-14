@@ -20,7 +20,12 @@ class ConfirmedOrder extends Component {
 
 		return (
 			<Item.Group fluid>
-				{this.state.showView && <View />}
+				{this.state.showView &&
+				<View
+					order={this.props.order}
+					toggleView={this.toggleView}
+					showView={this.state.showView}
+				/>}
 				<Item>
 					<Item.Image size='tiny' src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/user-male-icon.png' />
 
