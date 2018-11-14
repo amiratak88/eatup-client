@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
+import { ActionCable } from 'react-actioncable-provider'
 
 export default class ManagerNav extends Component {
 	state = { activeItem: 'Orders' }
@@ -21,6 +22,10 @@ export default class ManagerNav extends Component {
 					color='red'
 					content='Log out'
 					onClick={this.logout}
+				/>
+				<ActionCable 
+					channel={{channel: 'ManagersChannel', manager: localStorage.getItem('token')}}
+					onReceived={data => console.log("ACTIONCABLE", data)}
 				/>
 			</Menu>
 		)
