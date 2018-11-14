@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Menu, Button } from 'semantic-ui-react'
 import { ActionCable } from 'react-actioncable-provider'
+import { addReceivedOrder } from '../../actions/managerActions'
+import { connect } from 'react-redux'
 
-export default class ManagerNav extends Component {
+class ManagerNav extends Component {
 	state = { activeItem: 'Orders' }
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -10,6 +12,10 @@ export default class ManagerNav extends Component {
 	logout = () => {
 		localStorage.clear()
 		this.props.history.push('/managers/login')
+	}
+
+	handleReceived = (order) => {
+		this.props.addReceivedOrder(JSON.parse(order))
 	}
 
 	render() {
@@ -25,9 +31,11 @@ export default class ManagerNav extends Component {
 				/>
 				<ActionCable 
 					channel={{channel: 'ManagersChannel', manager: localStorage.getItem('token')}}
-					onReceived={data => console.log("ACTIONCABLE", data)}
+					onReceived={this.handleReceived}
 				/>
 			</Menu>
 		)
 	}
 }
+
+export default connect(null, { addReceivedOrder })(ManagerNav)
