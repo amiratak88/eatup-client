@@ -21,8 +21,8 @@ class Confirmation extends Component {
 					<Container textAlign='center'>
 						Received on 1/1/2018 at 4:30 pm
 					</Container>
-					<User />
-					<Receipt />
+					<User user={this.props.order.user} />
+					<Receipt order_items={this.props.order.order_items} />
 				</Modal.Content>
 				<Modal.Actions>
 					<Container textAlign='center'>
