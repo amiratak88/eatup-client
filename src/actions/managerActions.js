@@ -17,10 +17,10 @@ export const confirmOrder = (id) => {
 	return (dispatch) => {
 		dispatch({ type: 'START_CONFIRMING_ORDER' })
 		return confirmOrderAdpater(id)
-			.then(data => {
+			.then(order => {
 				return dispatch({
 					type: 'CONFIRM_ORDER',
-					payload: id
+					payload: order
 				})
 			})
 	}
