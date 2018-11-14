@@ -11,6 +11,7 @@ import { Switch, Route } from 'react-router-dom'
 import OrderNow from './components/User/OrderNow'
 import MyOrders from './components/User/MyOrders'
 import NewOrders from './components/Manager/NewOrders'
+import ConfirmedOrders from './components/Manager/ConfirmedOrders';
 
 class App extends Component {
 
@@ -45,6 +46,9 @@ class App extends Component {
 						<Route path='/managers/login' component={ManagerLogin} />
 						<Route path='/managers/new_orders' render={(routerProps) => {
 							return <NewOrders {...routerProps} />
+						}} />
+						<Route path='/managers/confirmed_orders' render={(routerProps) => {
+							return <ConfirmedOrders {...routerProps} />
 						}} />
 					</Switch>
 				</Container>
