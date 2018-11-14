@@ -21,6 +21,10 @@ class UserNav extends Component {
 		this.props.history.push('/users/login')
 	}
 
+	handleReceived = (data) => {
+		this.props.updateReceivedOrder(JSON.parse(data))
+	}
+
 	render() {
 			const { activeItem } = this.state
 
@@ -37,7 +41,7 @@ class UserNav extends Component {
 					/>
 					<ActionCable
 						channel={{ channel: 'UsersChannel', user: localStorage.getItem('token') }}
-						onReceived={this.props.updateReceivedOrder}
+						onReceived={this.handleReceived}
 					/>
 				</Menu>
 			)
