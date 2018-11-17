@@ -19,7 +19,7 @@ export const persist = (token) => {
 }
 
 export const confirmOrderAdpater = (id) => {
-	return fetch(`${API_ROOT}/orders/${id}`, {
+	return fetch(`${API_ROOT}/orders/${id}/confirm`, {
 		method: 'PATCH',
 		headers: {
 			...HEADERS,
