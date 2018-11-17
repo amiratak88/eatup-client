@@ -24,8 +24,7 @@ export const confirmOrderAdpater = (id) => {
 		headers: {
 			...HEADERS,
 			Authorization: localStorage.getItem('token')
-		},
-		body: JSON.stringify({status: "confirmed"})
+		}
 	})
 		.then(res => res.json())
 }
