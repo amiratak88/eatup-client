@@ -63,11 +63,11 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				orders: [
-					...state.orders,
 					{
 						...state.currentOrder,
 						status: "finalized"
-					}
+					},
+					...state.orders
 				],
 				currentOrder: {...initialState.currentOrder}
 			}
