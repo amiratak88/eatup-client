@@ -21,7 +21,10 @@ export const persist = (token) => {
 export const confirmOrderAdpater = (id) => {
 	return fetch(`${API_ROOT}/orders/${id}`, {
 		method: 'PATCH',
-		headers: HEADERS,
+		headers: {
+			...HEADERS,
+			Authorization: localStorage.getItem('token')
+		},
 		body: JSON.stringify({status: "confirmed"})
 	})
 		.then(res => res.json())
