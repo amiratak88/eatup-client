@@ -4,6 +4,8 @@ Eatup allows restaurants to receive online orders from customers in real time.
 
 ## Motivation
 
+This app was created with the idea of fixing real time problems that happen in other online ordering services.
+
 ## Screenshots
 
 ## Tech/framework used
