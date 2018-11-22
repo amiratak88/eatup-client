@@ -34,11 +34,9 @@ npm instal && npm start
 
 ![Port already in use!](src/assets/images/readme/port_already_in_use_prompt.png)
 
-- If you see something similar to this, you have successfully booted up the client server:
+- If you see something similar to this, you have successfully booted up the client server and it should be running on port **3001**.
 
 ![Installation Finished](src/assets/images/readme/installation_final_page.png)
-
-- Your server should be running on port **3001**.
 
 ## How to use?
 
