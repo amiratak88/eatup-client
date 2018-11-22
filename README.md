@@ -62,7 +62,7 @@ npm instal && npm start
 
 ## Contribute
 
-Interested in contributing to this repository? Check out the [CONTRIBUTION.md](CONTRIBUTION.md) file.
+Interested in contributing to this repository? Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ## Credits
 
