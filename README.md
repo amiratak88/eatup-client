@@ -6,6 +6,10 @@ Eatup allows restaurants to receive online orders from customers in real time.
 
 This app was created with the idea of fixing real time problems that happen in other online ordering services.
 
+## Demo
+
+Watch a short demo of how this app works on [Youtube](https://youtu.be/O9pYRAWddMY)!
+
 ## Screenshots
 
 ### User Views
@@ -50,8 +54,6 @@ npm instal && npm start
 - If you see something similar to this, you have successfully booted up the client server and it should be running on port **3001**.
 
 ![Installation Finished](src/assets/images/readme/installation_final_page.png)
-
-## How to use?
 
 ## Contribute
 
