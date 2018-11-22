@@ -44,7 +44,7 @@ npm instal && npm start
 
 ## Credits
 
-I want to thank all my instructors and classmates at Flatiron school espicially:
+I want to thank all my instructors and classmates at Flatiron school especially:
 - Prince Wilson
 - Niky Morgan
 - Eric Kim
