@@ -8,6 +8,17 @@ This app was created with the idea of fixing real time problems that happen in o
 
 ## Screenshots
 
+### User Views
+
+![My orders](src/assets/images/readme/user_my_orders.png)
+![Searched restaurants](src/assets/images/readme/user_searched_restaurants.png)
+![Order: first step](src/assets/images/readme/user_select_items.png)
+
+### Manager Views
+
+![My orders](src/assets/images/readme/manager_my_orders.png)
+![View order](src/assets/images/readme/manager_view_order.png)
+
 ## Tech/framework used
 
 - [React.js](https://reactjs.org/)
