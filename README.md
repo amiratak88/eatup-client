@@ -33,6 +33,11 @@ Watch a short demo of how this app works on [Youtube](https://youtu.be/O9pYRAWdd
 
 ## Features
 
+- Developed a **Single Page Application** with **React** and **Redux**
+- Used **Rails' Actioncables** to integrate **Websockets** to broadcast orders between the managers and customers in **real time**
+- Designed the user interface employing **Semantic Ui React**
+- Incorporated **JWT** in order to implement secure login, websocket connection and HTTP requests.
+
 ## Installation
 
 Before anything be sure to start the back end server and set up your database. Click [here](http://github.com/amiratak88/eatup-server) for the server's repository.
