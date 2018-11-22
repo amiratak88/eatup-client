@@ -62,6 +62,8 @@ npm instal && npm start
 
 ## Contribute
 
+Interested in contributing to this repository? Check out the [CONTRIBUTION.md] file.
+
 ## Credits
 
 I want to thank all my instructors and classmates at Flatiron school especially:
